@@ -1,6 +1,8 @@
 <div id='container' ng-controller="LinksController">
   <!-- Your html here -->
-
-  {{ getAll }}
-
+  <a class="navigation" href="#/links">Links</a>
+  <a class="navigation" href="#/shorten">Shorten URL</a>
+  <div ng-repeat="link in Links track by $index"> 
+   {{ link }}
+  </div>
 </div>
