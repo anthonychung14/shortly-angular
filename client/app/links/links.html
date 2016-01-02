@@ -1,10 +1,22 @@
 <div id='container' ng-controller="LinksController">
   <!-- Your html here -->
-  <a class="navigation" href="#/links">Links</a>
-  <a class="navigation" href="#/shorten">Shorten URL</a>
-  <ul> 
-   <li ng-repeat="link in data.links">
-   	{{ link.url }}
-  </li>
-  </ul>
+  <div class = "navigation">
+    <ul>
+      <li><a href="#/links">Links</a></li>
+      <li><a href="#/shorten">Shorten URL</a></li>
+    </ul>
+  </div>
+  <label> Search: <input ng-model="searchText"></label>
+  <table class='link'>
+   <tr class='info' ng-repeat="link in data.links | filter:searchText | orderBy:'-visits'">
+
+   <td><img src = "assets/redirect_icon.png"></td>
+
+
+   	<td class='title'>{{link.title}}</td>
+    <td class='original'>{{ link.url }}</td>
+    <td><a href='{{link.base_url}}/{{link.code}}'>{{link.base_url}}/{{link.code}}</a></td>
+    <td class='visits'> <span class='count'>{{ link.visits }}</span>visits</td>
+  </tr>
+  </table>
 </div>

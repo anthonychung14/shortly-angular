@@ -10,7 +10,6 @@ angular.module('shortly.services', [])
           url: '/api/links',
         })
         .then(function(resp) {
-          console.log("GETALL RESP", resp.data)
           return resp.data;
         });
 
