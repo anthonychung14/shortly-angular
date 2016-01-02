@@ -2,9 +2,9 @@
 <!-- Your code here -->
   <a class="navigation" href="#/links">Links</a>
   <a class="navigation" href="#/shorten">Shorten URL</a>
-
-  <input ng-model="newLink"/>
-  <button submit ng-click="addLink()">Add Link</button>
+	  <input type='text' name='theLink' ng-model="newLink" required>
+<!-- 	  <span ng-show="addLink.theLink.$error.required">ADD A LINK YOU HO</span>
+ -->	  <button submit ng-click="addLink()">Add Link</button>
 
 </div>
 

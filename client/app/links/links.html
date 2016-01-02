@@ -2,7 +2,9 @@
   <!-- Your html here -->
   <a class="navigation" href="#/links">Links</a>
   <a class="navigation" href="#/shorten">Shorten URL</a>
-  <div ng-repeat="link in Links track by $index"> 
-   {{ link }}
-  </div>
+  <ul> 
+   <li ng-repeat="link in data.links">
+   	{{ link.url }}
+  </li>
+  </ul>
 </div>

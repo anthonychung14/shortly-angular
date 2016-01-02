@@ -4,13 +4,13 @@ angular.module('shortly.services', [])
 
     // Your code here
 
-    var getAll = function(links) {
+    var getAll = function() {
       return $http({
           method: 'GET',
           url: '/api/links',
-          data: links
         })
         .then(function(resp) {
+          console.log("GETALL RESP", resp.data)
           return resp.data;
         });
 
