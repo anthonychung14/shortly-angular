@@ -1,10 +1,19 @@
 angular.module('shortly.links', [])
 
 .controller('LinksController', function($scope, Links) {
-  //Why isn't this getting wiped every single time if we couldn't declare an empty array for links?
+
   $scope.data = {};
+  $scope.visits = []
 
   Links.getAll().then(function(data) {
     $scope.data.links=data;
+  }).then(function() {
+    for (var i = 0; i < $scope.data.links.length; i++) {
+      $scope.visits.push({
+          title: $scope.data.links[i].title,
+          visits: $scope.data.links[i].visits
+        })
+    }
   });
 });
+

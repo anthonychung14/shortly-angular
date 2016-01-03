@@ -1,14 +1,25 @@
+
+//Lists out all dependencies of the shortly module
 angular.module('shortly', [
     'shortly.services',
     'shortly.links',
     'shortly.shorten',
     'shortly.auth',
+    'd3',
+    'shortly.d3',
     'ngRoute'
   ])
+
+//config takes two dependencies, a route provider and httpprovider
+//so with that being said, you can have a graph on each dashboard
+
+//then an option to build a graph of dependencies
   .config(function($routeProvider, $httpProvider) {
     $routeProvider
       .when('/signin', {
+        //specifies the exact url/html file
         templateUrl: 'app/auth/signin.html',
+        //specifies the controller for each html file
         controller: 'AuthController'
       })
       .when('/signup', {
@@ -18,16 +29,20 @@ angular.module('shortly', [
       // Your code here
       .when('/links', {
         templateUrl: 'app/links/links.html',
-        controller: 'LinksController'
+        controller: 'LinksController',
+        authenticate: true
       })
       .when('/shorten', {
         templateUrl: 'app/shorten/shorten.html',
-        controller: 'ShortenController'
-
+        controller: 'ShortenController',
+        authenticate: true
       });
     // We add our $httpInterceptor into the array
     // We add our $httpInterceptor into the array
     // of interceptors. Think of it like middleware for your ajax calls
+    
+    //what the hell does httpProvider.interceptors do?
+    //
     $httpProvider.interceptors.push('AttachTokens');
   })
   .factory('AttachTokens', function($window) {

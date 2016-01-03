@@ -11,7 +11,7 @@
     <a href = "#/signin">Sign In</a>
 
     <!-- the ng-view directive is where our templates will be loaded into when naviagted to -->
-    <div ng-view>
+    <div ng-app='shortly' ng-view>
       
 
     </div>
@@ -20,7 +20,9 @@
     <script src="lib/angular-route/angular-route.js"></script>
 
     <script src="app/auth/auth.js"></script>
-    <script src="app/links/links.js"></script>
+    <script src="app/links/links.js"></script>    
+    <script src="app/links/d3Links.js"></script>
+    <script src="app/services/d3Service.js"></script>
     <script src="app/shorten/shorten.js"></script>
     <script src="app/services/services.js"></script>
     <script src="app/app.js"></script>

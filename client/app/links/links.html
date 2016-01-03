@@ -11,12 +11,12 @@
    <tr class='info' ng-repeat="link in data.links | filter:searchText | orderBy:'-visits'">
 
    <td><img src = "assets/redirect_icon.png"></td>
-
-
    	<td class='title'>{{link.title}}</td>
     <td class='original'>{{ link.url }}</td>
     <td><a href='{{link.base_url}}/{{link.code}}'>{{link.base_url}}/{{link.code}}</a></td>
     <td class='visits'> <span class='count'>{{ link.visits }}</span>visits</td>
   </tr>
   </table>
+
+  <div bar-Chart data='visits' bar-height="20" bar-padding="5"></div>
 </div>
